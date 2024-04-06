@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -59,17 +60,18 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         labelAvatar = new javax.swing.JLabel();
         labelAvatarText = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btn_Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setForeground(new java.awt.Color(255, 255, 153));
         jPanel1.setLayout(null);
 
-        btnBack.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(51, 51, 51));
-        btnBack.setText("Back");
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/back.png"))); // NOI18N
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -78,11 +80,10 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnBack);
-        btnBack.setBounds(320, 310, 73, 48);
+        btnBack.setBounds(20, 10, 30, 30);
 
-        btnSaveChanges.setBackground(new java.awt.Color(30, 30, 30));
-        btnSaveChanges.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        btnSaveChanges.setForeground(new java.awt.Color(255, 255, 255));
+        btnSaveChanges.setBackground(new java.awt.Color(51, 255, 0));
+        btnSaveChanges.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSaveChanges.setText("Save Changes");
         btnSaveChanges.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSaveChanges.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -92,9 +93,9 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSaveChanges);
-        btnSaveChanges.setBounds(440, 310, 160, 48);
+        btnSaveChanges.setBounds(430, 320, 140, 48);
 
-        btnChooseAvatar.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        btnChooseAvatar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnChooseAvatar.setForeground(new java.awt.Color(51, 51, 51));
         btnChooseAvatar.setText("Choose new Avatar");
         btnChooseAvatar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -105,7 +106,7 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnChooseAvatar);
-        btnChooseAvatar.setBounds(310, 220, 260, 48);
+        btnChooseAvatar.setBounds(310, 240, 260, 48);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -123,25 +124,37 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         labelAvatarText.setBounds(15, 265, 230, 45);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(20, 20, 260, 330);
+        jPanel2.setBounds(20, 60, 260, 310);
         jPanel1.add(jLabel1);
         jLabel1.setBounds(360, 20, 0, 160);
+
+        btn_Cancel.setBackground(new java.awt.Color(255, 0, 0));
+        btn_Cancel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_Cancel.setText("Hủy");
+        btn_Cancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CancelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_Cancel);
+        btn_Cancel.setBounds(310, 320, 100, 50);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -163,19 +176,32 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         String link = System.getProperty("user.dir");
         System.out.println(link);
         final JFileChooser fileDialog = new JFileChooser(link + "\\src\\comm\\chatapp\\image\\");
-            int returnVal = fileDialog.showOpenDialog(this);
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                java.io.File file = fileDialog.getSelectedFile();
-                labelAvatar.setIcon(new javax.swing.ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/" + file.getName()))));
-                account.setAvatar(file.getName());
-            }
+        int returnVal = fileDialog.showOpenDialog(this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            java.io.File file = fileDialog.getSelectedFile();
+            labelAvatar.setIcon(new javax.swing.ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/" + file.getName()))));
+            account.setAvatar(file.getName());
+        }
     }//GEN-LAST:event_btnChooseAvatarActionPerformed
+
+    private ImageIcon originalImageIcon;
+    
+    private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
+        if (originalImageIcon != null) {
+            // Đặt lại hình ảnh của labelAvatar thành hình ảnh ban đầu
+            labelAvatar.setIcon(originalImageIcon);
+        } else {
+            // Nếu không có hình ảnh ban đầu, đặt hình ảnh của labelAvatar thành null
+            labelAvatar.setIcon(null);
+        }
+    }//GEN-LAST:event_btn_CancelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnChooseAvatar;
     private javax.swing.JButton btnSaveChanges;
+    private javax.swing.JButton btn_Cancel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

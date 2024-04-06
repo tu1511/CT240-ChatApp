@@ -60,13 +60,14 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         txtConfirmPassword = new javax.swing.JPasswordField();
         labelConfirmPass = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        btnChange = new javax.swing.JButton();
+        btn_Change = new javax.swing.JButton();
         labelNotification = new javax.swing.JLabel();
         lbHidePW = new javax.swing.JLabel();
+        btn_Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setForeground(new java.awt.Color(255, 255, 153));
         jPanel1.setLayout(null);
@@ -74,19 +75,14 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         labelChangePass.setFont(new java.awt.Font("Bahnschrift", 0, 36)); // NOI18N
         labelChangePass.setText("Change Password");
         jPanel1.add(labelChangePass);
-        labelChangePass.setBounds(220, 20, 300, 40);
+        labelChangePass.setBounds(140, 20, 300, 40);
 
         txtCurrentPassword.setBackground(new java.awt.Color(222, 222, 222));
         txtCurrentPassword.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
         txtCurrentPassword.setForeground(new java.awt.Color(91, 90, 90));
         txtCurrentPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        txtCurrentPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCurrentPasswordActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtCurrentPassword);
-        txtCurrentPassword.setBounds(350, 80, 160, 34);
+        txtCurrentPassword.setBounds(330, 80, 160, 34);
 
         labelCurrentPass.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         labelCurrentPass.setText("Current Password");
@@ -98,7 +94,7 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         txtNewPassword.setForeground(new java.awt.Color(91, 90, 90));
         txtNewPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.add(txtNewPassword);
-        txtNewPassword.setBounds(350, 130, 160, 34);
+        txtNewPassword.setBounds(330, 130, 160, 34);
 
         labelNewPass.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         labelNewPass.setText("New Password");
@@ -110,7 +106,7 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         txtConfirmPassword.setForeground(new java.awt.Color(91, 90, 90));
         txtConfirmPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPanel1.add(txtConfirmPassword);
-        txtConfirmPassword.setBounds(350, 180, 160, 34);
+        txtConfirmPassword.setBounds(330, 180, 160, 34);
 
         labelConfirmPass.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         labelConfirmPass.setText("Confirm Password");
@@ -118,8 +114,7 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         labelConfirmPass.setBounds(80, 190, 180, 23);
 
         btnBack.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(51, 51, 51));
-        btnBack.setText("Back");
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/back.png"))); // NOI18N
         btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -128,21 +123,20 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnBack);
-        btnBack.setBounds(140, 300, 90, 39);
+        btnBack.setBounds(30, 20, 30, 30);
 
-        btnChange.setBackground(new java.awt.Color(30, 30, 30));
-        btnChange.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        btnChange.setForeground(new java.awt.Color(255, 255, 255));
-        btnChange.setText("Change");
-        btnChange.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnChange.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnChange.addActionListener(new java.awt.event.ActionListener() {
+        btn_Change.setBackground(new java.awt.Color(51, 255, 51));
+        btn_Change.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_Change.setText("Change");
+        btn_Change.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_Change.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_Change.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnChangeActionPerformed(evt);
+                btn_ChangeActionPerformed(evt);
             }
         });
-        jPanel1.add(btnChange);
-        btnChange.setBounds(300, 300, 100, 39);
+        jPanel1.add(btn_Change);
+        btn_Change.setBounds(310, 250, 100, 39);
 
         labelNotification.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         labelNotification.setForeground(new java.awt.Color(204, 0, 0));
@@ -157,20 +151,29 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         jPanel1.add(lbHidePW);
         lbHidePW.setBounds(450, 130, 40, 40);
 
+        btn_Cancel.setBackground(new java.awt.Color(255, 0, 51));
+        btn_Cancel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_Cancel.setText("Cancel");
+        btn_Cancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CancelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_Cancel);
+        btn_Cancel.setBounds(160, 250, 90, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -181,7 +184,7 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeActionPerformed
+    private void btn_ChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ChangeActionPerformed
         String notification = checkPassword();
         if(notification.equals("OK")==false) {
             labelNotification.setVisible(true);
@@ -217,15 +220,17 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
                 Logger.getLogger(ChangePasswordFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_btnChangeActionPerformed
+    }//GEN-LAST:event_btn_ChangeActionPerformed
 
     private void lbHidePWMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHidePWMousePressed
         
     }//GEN-LAST:event_lbHidePWMousePressed
 
-    private void txtCurrentPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCurrentPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCurrentPasswordActionPerformed
+    private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
+        txtConfirmPassword.setText("");
+        txtNewPassword.setText("");
+        txtCurrentPassword.setText("");
+    }//GEN-LAST:event_btn_CancelActionPerformed
 public void connectToServer() {
         try {
             if (socket != null) {
@@ -259,7 +264,8 @@ public void connectToServer() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnChange;
+    private javax.swing.JButton btn_Cancel;
+    private javax.swing.JButton btn_Change;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelChangePass;
     private javax.swing.JLabel labelConfirmPass;
