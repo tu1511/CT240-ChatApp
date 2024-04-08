@@ -67,113 +67,98 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setForeground(new java.awt.Color(255, 255, 153));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelChangePass.setFont(new java.awt.Font("Bahnschrift", 0, 36)); // NOI18N
+        labelChangePass.setForeground(new java.awt.Color(0, 0, 153));
         labelChangePass.setText("Change Password");
-        jPanel1.add(labelChangePass);
-        labelChangePass.setBounds(140, 20, 300, 40);
+        jPanel1.add(labelChangePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 300, 40));
 
-        txtCurrentPassword.setBackground(new java.awt.Color(222, 222, 222));
-        txtCurrentPassword.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
-        txtCurrentPassword.setForeground(new java.awt.Color(91, 90, 90));
-        txtCurrentPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(txtCurrentPassword);
-        txtCurrentPassword.setBounds(330, 80, 160, 34);
+        txtCurrentPassword.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        txtCurrentPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 255)));
+        txtCurrentPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCurrentPasswordActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtCurrentPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 300, 30));
 
         labelCurrentPass.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         labelCurrentPass.setText("Current Password");
-        jPanel1.add(labelCurrentPass);
-        labelCurrentPass.setBounds(80, 90, 160, 23);
+        jPanel1.add(labelCurrentPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 160, 30));
 
-        txtNewPassword.setBackground(new java.awt.Color(222, 222, 222));
-        txtNewPassword.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        txtNewPassword.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtNewPassword.setForeground(new java.awt.Color(91, 90, 90));
-        txtNewPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(txtNewPassword);
-        txtNewPassword.setBounds(330, 130, 160, 34);
+        txtNewPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 255)));
+        jPanel1.add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 300, 30));
 
         labelNewPass.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         labelNewPass.setText("New Password");
-        jPanel1.add(labelNewPass);
-        labelNewPass.setBounds(80, 140, 160, 23);
+        jPanel1.add(labelNewPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 160, 30));
 
-        txtConfirmPassword.setBackground(new java.awt.Color(222, 222, 222));
-        txtConfirmPassword.setFont(new java.awt.Font("Arial", 0, 22)); // NOI18N
+        txtConfirmPassword.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         txtConfirmPassword.setForeground(new java.awt.Color(91, 90, 90));
-        txtConfirmPassword.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        jPanel1.add(txtConfirmPassword);
-        txtConfirmPassword.setBounds(330, 180, 160, 34);
+        txtConfirmPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 255)));
+        jPanel1.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 300, 30));
 
         labelConfirmPass.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         labelConfirmPass.setText("Confirm Password");
-        jPanel1.add(labelConfirmPass);
-        labelConfirmPass.setBounds(80, 190, 180, 23);
+        jPanel1.add(labelConfirmPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 170, 30));
 
         btnBack.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/back.png"))); // NOI18N
-        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBack.setBorder(null);
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBack);
-        btnBack.setBounds(30, 20, 30, 30);
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 30, 30));
 
-        btn_Change.setBackground(new java.awt.Color(51, 255, 51));
         btn_Change.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_Change.setForeground(new java.awt.Color(0, 153, 51));
         btn_Change.setText("Change");
-        btn_Change.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btn_Change.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Change.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ChangeActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Change);
-        btn_Change.setBounds(310, 250, 100, 39);
+        jPanel1.add(btn_Change, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 120, 39));
 
-        labelNotification.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
-        labelNotification.setForeground(new java.awt.Color(204, 0, 0));
-        jPanel1.add(labelNotification);
-        labelNotification.setBounds(220, 260, 340, 40);
+        labelNotification.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
+        labelNotification.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(labelNotification, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 300, 30));
 
         lbHidePW.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lbHidePWMousePressed(evt);
             }
         });
-        jPanel1.add(lbHidePW);
-        lbHidePW.setBounds(450, 130, 40, 40);
+        jPanel1.add(lbHidePW, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 40, 30));
 
-        btn_Cancel.setBackground(new java.awt.Color(255, 0, 51));
         btn_Cancel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btn_Cancel.setText("Cancel");
-        btn_Cancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_Cancel.setForeground(new java.awt.Color(255, 153, 0));
+        btn_Cancel.setText("Reload");
+        btn_Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CancelActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_Cancel);
-        btn_Cancel.setBounds(160, 250, 90, 40);
+        jPanel1.add(btn_Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 120, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 565, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
         );
 
         pack();
@@ -222,15 +207,19 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_ChangeActionPerformed
 
-    private void lbHidePWMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHidePWMousePressed
-        
-    }//GEN-LAST:event_lbHidePWMousePressed
-
     private void btn_CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CancelActionPerformed
         txtConfirmPassword.setText("");
         txtNewPassword.setText("");
         txtCurrentPassword.setText("");
     }//GEN-LAST:event_btn_CancelActionPerformed
+
+    private void txtCurrentPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCurrentPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCurrentPasswordActionPerformed
+
+    private void lbHidePWMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHidePWMousePressed
+
+    }//GEN-LAST:event_lbHidePWMousePressed
 public void connectToServer() {
         try {
             if (socket != null) {

@@ -46,10 +46,8 @@ public class ServerFrm extends javax.swing.JFrame {
         setTitle("SERVER");
         setBackground(new java.awt.Color(255, 255, 51));
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 102));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SERVER");
 
@@ -72,12 +70,11 @@ public class ServerFrm extends javax.swing.JFrame {
             }
         });
 
-        statusPanel.setBackground(new java.awt.Color(255, 255, 255));
         statusPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "STATUS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         notificationLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         notificationLabel.setForeground(new java.awt.Color(255, 0, 51));
-        notificationLabel.setText("The server is STOPPING....");
+        notificationLabel.setText("The server is STOPPING");
 
         javax.swing.GroupLayout statusPanelLayout = new javax.swing.GroupLayout(statusPanel);
         statusPanel.setLayout(statusPanelLayout);
@@ -190,20 +187,12 @@ public class ServerFrm extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                    new ServerFrm().setVisible(true);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(ServerFrm.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (InstantiationException ex) {
-                    Logger.getLogger(ServerFrm.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IllegalAccessException ex) {
-                    Logger.getLogger(ServerFrm.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (UnsupportedLookAndFeelException ex) {
-                    Logger.getLogger(ServerFrm.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                new ServerFrm().setVisible(true);
+            } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+                Logger.getLogger(ServerFrm.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }
