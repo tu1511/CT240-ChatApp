@@ -9,6 +9,7 @@ import com.chatapp.model.FileMessage;
 import com.chatapp.model.Message;
 import com.chatapp.model.TextMessage;
 import java.awt.Image;
+import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.BufferedInputStream;
@@ -45,6 +46,8 @@ public class ChatFrm extends javax.swing.JFrame {
         account = users;
         input = dis;
         output = dos;
+        
+        menu_Icon.add(panel_Icon);
         //Tạo luồng cho người vừa đăng nhập
         receiverThread = new Thread(new ChatFrm.Receiver(dis));
         receiverThread.start();
@@ -127,6 +130,10 @@ public class ChatFrm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel_Icon = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        menu_Icon = new javax.swing.JPopupMenu();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         panelAccount = new javax.swing.JPanel();
@@ -144,9 +151,27 @@ public class ChatFrm extends javax.swing.JFrame {
         txtChat = new javax.swing.JTextField();
         btnSend = new javax.swing.JButton();
         btnSendFile = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         labelUserName = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout panel_IconLayout = new javax.swing.GroupLayout(panel_Icon);
+        panel_Icon.setLayout(panel_IconLayout);
+        panel_IconLayout.setHorizontalGroup(
+            panel_IconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+        );
+        panel_IconLayout.setVerticalGroup(
+            panel_IconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_IconLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -254,7 +279,6 @@ public class ChatFrm extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
-        chatWindow.setBackground(new java.awt.Color(255, 255, 255));
         chatWindow.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         chatWindow.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         chatWindow.setForeground(new java.awt.Color(91, 90, 90));
@@ -316,17 +340,27 @@ public class ChatFrm extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setText("Icon");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(txtChat)
+                .addComponent(txtChat, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSendFile, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSendFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSend, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSend)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -334,9 +368,10 @@ public class ChatFrm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnSend, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtChat)
-                    .addComponent(btnSendFile, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
+                    .addComponent(btnSendFile, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(txtChat))
                 .addContainerGap())
         );
 
@@ -574,6 +609,20 @@ public class ChatFrm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_panelAccountComponentMoved
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int newX = jButton1.getLocation().x +240;
+        int newY = jButton1.getLocation().y + jButton1.getHeight() +310;
+
+        // Đặt vị trí mới cho menu_Icon
+        menu_Icon.setLocation(newX, newY);
+
+        // Hiển thị menu_Icon tại vị trí mới
+        menu_Icon.setVisible(true);
+
+        // Hiển thị panel_Icon bên trong menu_Icon
+        menu_Icon.add(panel_Icon);
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
     private void setIconImage() {
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Image/tchat_title_white.png")));
 
@@ -719,6 +768,7 @@ public class ChatFrm extends javax.swing.JFrame {
     private javax.swing.JButton btnSendFile;
     private javax.swing.JComboBox<String> cbOnlineUsers;
     private javax.swing.JTextPane chatWindow;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -726,11 +776,15 @@ public class ChatFrm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel labelChatWith;
     private javax.swing.JLabel labelUserName;
     private javax.swing.JLabel lblAvatar;
+    private javax.swing.JPopupMenu menu_Icon;
     private javax.swing.JPanel panelAccount;
+    private javax.swing.JPanel panel_Icon;
     private javax.swing.JTextField txtChat;
     // End of variables declaration//GEN-END:variables
 }
