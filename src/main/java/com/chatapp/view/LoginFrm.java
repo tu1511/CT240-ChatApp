@@ -79,8 +79,8 @@ public class LoginFrm extends javax.swing.JFrame {
             output.flush();
             String response;
             response = input.readUTF();
-            //String linkavatar = input.readUTF();
-            account.setAvatar("");
+            String linkavatar = input.readUTF();
+            account.setAvatar(linkavatar);
             System.out.println("da" + response);
             return response;
         } catch (IOException e) {

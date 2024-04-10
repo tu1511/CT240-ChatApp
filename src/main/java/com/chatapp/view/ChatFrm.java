@@ -6,6 +6,7 @@ package com.chatapp.view;
 
 import com.chatapp.model.Account;
 import com.chatapp.model.FileMessage;
+import com.chatapp.model.Message;
 import com.chatapp.model.TextMessage;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -16,7 +17,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -31,7 +34,8 @@ public class ChatFrm extends javax.swing.JFrame {
     private DataOutputStream output;
     Thread receiverThread;
     // Tạo HashMap với khóa là tên người nhận tin nhắn và values là nội dung chat của người dùng hiện tại với khóa(người dùng dc chat chung)
-    protected HashMap<String, String> messageContent = new HashMap<String, String>();
+//    protected HashMap<String, String> messageContent = new HashMap<String, String>();
+    protected HashMap<String, List<Message>> messageContent = new HashMap<String, List<Message>>();
 
     public ChatFrm(Account users, DataInputStream dis, DataOutputStream dos) {
         initComponents();
@@ -67,25 +71,50 @@ public class ChatFrm extends javax.swing.JFrame {
     public void setPassword(String pass) {
         account.setPassword(pass);
     }
-
-    public void newMessage(String sender, String receiveString, String message, Boolean yourMessage) {
+    
+    // Load message của một người ra khung chat
+    public void displayMessage(String friend) {
+        List<Message> messages = messageContent.get(friend);
+        
+        for (Message mess : messages) {
+            mess.printMessage(friend, chatWindow);
+        }
+    }
+    
+    // Thêm tin nhắn đi và đến từ một người bạn vào hashmap
+    public void addMessage(String friend, Message message) {
+        List<Message> currentMessage = messageContent.get(friend);
+        currentMessage.add(message);
+        messageContent.put(friend, currentMessage);
+    }
+    
+    // Hiển thị tin nhắn dạng text
+    public void displayTextMessage(String sender, String receiveString, String message, Boolean yourMessage) {
         TextMessage tm = new TextMessage(message, sender, receiveString, yourMessage);
 
         if (yourMessage == false && cbOnlineUsers.getSelectedItem().equals(sender) == false) {
-            String tmp = messageContent.get(sender);
-            messageContent.replace(sender, tmp + sender + ": " + message + "\n");
+            addMessage(sender, tm);
         } else if (yourMessage == false && sender.equals(cbOnlineUsers.getSelectedItem())) {
-//            String v = chatWindow.getText();
-//            chatWindow.setText(v + sender + ": " + message + "\n");
-
             tm.printMessage(sender, chatWindow);
-            messageContent.replace(sender, chatWindow.getText());
+            addMessage(sender, tm);
         } else {
-//            String v = chatWindow.getText();
-//            chatWindow.setText(v + "You" + ": " + message + "\n");
-
             tm.printMessage(sender, chatWindow);
-            messageContent.replace((String) cbOnlineUsers.getSelectedItem(), chatWindow.getText());
+            addMessage((String) cbOnlineUsers.getSelectedItem(), tm);
+        }
+    }
+    
+    // Hiển thị tin nhắn dạng file
+    public void displayFileMessage(String filename, byte[] file, String sender, String receiver, Boolean yourMessage) {
+        FileMessage fm = new FileMessage(filename, file, sender, receiver, yourMessage);
+
+        if (yourMessage == false && cbOnlineUsers.getSelectedItem().equals(sender) == false) {
+            addMessage(sender, fm);
+        } else if (yourMessage == false && sender.equals(cbOnlineUsers.getSelectedItem())) {
+            fm.printMessage(sender, chatWindow);
+            addMessage(sender, fm);
+        } else {
+            fm.printMessage(sender, chatWindow);                
+            addMessage((String) cbOnlineUsers.getSelectedItem(), fm);
         }
     }
 
@@ -405,9 +434,9 @@ public class ChatFrm extends javax.swing.JFrame {
                             output.flush();
                         } catch (IOException e1) {
                             e1.printStackTrace();
-                            newMessage("ERROR", "ERROR", "Network error!", true);
+                            displayTextMessage("ERROR", "ERROR", "Network error!", true);
                         }
-                        newMessage(labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), txtChat.getText(), true);
+                        displayTextMessage(labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), txtChat.getText(), true);
                         autoScroll();
                         txtChat.setText("");
                     }
@@ -430,9 +459,9 @@ public class ChatFrm extends javax.swing.JFrame {
                         output.flush();
                     } catch (IOException e1) {
                         e1.printStackTrace();
-                        newMessage("ERROR", "ERROR", "Network error!", true);
+                        displayTextMessage("ERROR", "ERROR", "Network error!", true);
                     }
-                    newMessage(labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), txtChat.getText(), true);
+                    displayTextMessage(labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), txtChat.getText(), true);
                     autoScroll();
                     txtChat.setText("");
                 }
@@ -446,7 +475,7 @@ public class ChatFrm extends javax.swing.JFrame {
         chatWindow.setText("");
         for (String i : messageContent.keySet()) {
             if (i.equals(cbOnlineUsers.getSelectedItem())) {
-                chatWindow.setText(messageContent.get(i));
+                displayMessage(i);
             }
         }
     }//GEN-LAST:event_cbOnlineUsersItemStateChanged
@@ -497,9 +526,9 @@ public class ChatFrm extends javax.swing.JFrame {
                         bis.close();
 
                         // In ra màn hình file
-                        FileMessage fm = new FileMessage(fileChooser.getSelectedFile().getName(), selectedFile,
-                                labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), true);
-                        fm.printMessage(labelUserName.getText(), chatWindow);
+                        displayFileMessage(fileChooser.getSelectedFile().getName(), selectedFile,
+                                labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), true
+                        );
                         autoScroll();
                     } catch (IOException e1) {
                         e1.printStackTrace();
@@ -579,7 +608,7 @@ public class ChatFrm extends javax.swing.JFrame {
                         String receiver = messageReceived[2];
                         String message = messageReceived[3];
                         // In tin nhắn lên màn hình chat với người gửi
-                        newMessage(sender, receiver, message, false);
+                        displayTextMessage(sender, receiver, message, false);
                         autoScroll();
 
                     } else if (messageReceived[0].equals("File")) {
@@ -597,6 +626,10 @@ public class ChatFrm extends javax.swing.JFrame {
                             file.write(buffer, 0, Math.min(bufferSize, size));
                             size -= bufferSize;
                         }
+                        
+                        // In tin nhắn lên màn hình chat
+                        displayFileMessage(filename, buffer, sender, receiver, false);
+                        autoScroll();
 
                     } else if (messageReceived[0].equals("Online users")) {
                         // Nhận yêu cầu cập nhật danh sách người dùng trực tuyến
@@ -611,7 +644,7 @@ public class ChatFrm extends javax.swing.JFrame {
                                 // Cập nhật danh sách các người dùng trực tuyến vào ComboBox onlineUsers (trừ bản thân)
                                 cbOnlineUsers.addItem(u);
                                 if (messageContent.get(u) == null) {
-                                    messageContent.put(u, "");
+                                    messageContent.put(u, new ArrayList<>());
                                 }
                             }
                             if ((chat != null) && chat.equals(u)) {
