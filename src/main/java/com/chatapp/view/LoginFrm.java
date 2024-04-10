@@ -59,7 +59,7 @@ public class LoginFrm extends javax.swing.JFrame {
         if (txtUserName.getText().equals("") && txtPassword.getText().equals("")) {
             return "Please enter username and password.";
         } else if (txtUserName.getText().equals("")) {
-            return "Please enter your password.";
+            return "Please enter your username.";
         } else if (txtPassword.getText().equals("") || (txtPassword.getText().length() < 8)) {
             return "Password must be at least 8 characters.\n";
         } else if (!checkUsername(txtUserName.getText())) {
