@@ -39,7 +39,7 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         this.account = account;
         input = dis;
         output = dos;
-        labelAvatar.setIcon(new javax.swing.ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image" + account.getAvatar())).getScaledInstance(237, 237, Image.SCALE_SMOOTH)));
+        labelAvatar.setIcon(new javax.swing.ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/" + account.getAvatar())).getScaledInstance(237, 237, Image.SCALE_SMOOTH)));
         setIconImage();
     }
 
