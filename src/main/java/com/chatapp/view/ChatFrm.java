@@ -9,7 +9,6 @@ import com.chatapp.model.FileMessage;
 import com.chatapp.model.Message;
 import com.chatapp.model.TextMessage;
 import java.awt.Image;
-import java.awt.Point;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.BufferedInputStream;
