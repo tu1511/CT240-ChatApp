@@ -53,14 +53,14 @@ public class LoginFrm extends javax.swing.JFrame {
         return true;
     }
 
+    @SuppressWarnings("deprecation")
     public String check() {
 
         if (txtUserName.getText().equals("") && txtPassword.getText().equals("")) {
             return "Please enter username and password.";
         } else if (txtUserName.getText().equals("")) {
             return "Please enter your password.";
-        } else if (txtPassword.getText().equals("")) {
-        } else if (txtPassword.getText().length() < 8) {
+        } else if (txtPassword.getText().equals("") || (txtPassword.getText().length() < 8)) {
             return "Password must be at least 8 characters.\n";
         } else if (!checkUsername(txtUserName.getText())) {
             return "Username does not contain spaces.";
@@ -77,8 +77,8 @@ public class LoginFrm extends javax.swing.JFrame {
             output.flush();
             String response;
             response = input.readUTF();
-            //String linkavatar = input.readUTF();
-            account.setAvatar("");
+            String linkavatar = input.readUTF();
+            account.setAvatar(linkavatar);
             System.out.println("da" + response);
             return response;
         } catch (IOException e) {
@@ -272,6 +272,7 @@ public class LoginFrm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserNameActionPerformed
 
+    @SuppressWarnings("deprecation")
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         if (!check().equals("OK")) {
@@ -306,6 +307,7 @@ public class LoginFrm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    @SuppressWarnings("deprecation")
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         // TODO add your handling code here:
         if (check().equals("OK")) {
@@ -332,6 +334,7 @@ public class LoginFrm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+    @SuppressWarnings("deprecation")
     private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
