@@ -60,8 +60,7 @@ public class LoginFrm extends javax.swing.JFrame {
             return "Please enter username and password.";
         } else if (txtUserName.getText().equals("")) {
             return "Please enter your password.";
-        } else if (txtPassword.getText().equals("")) {
-        } else if (txtPassword.getText().length() < 8) {
+        } else if (txtPassword.getText().equals("") || (txtPassword.getText().length() < 8)) {
             return "Password must be at least 8 characters.\n";
         } else if (!checkUsername(txtUserName.getText())) {
             return "Username does not contain spaces.";
