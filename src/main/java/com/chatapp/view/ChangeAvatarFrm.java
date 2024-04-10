@@ -39,7 +39,7 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         this.account = account;
         input = dis;
         output = dos;
-        labelAvatar.setIcon(new javax.swing.ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image" + account.getAvatar())).getScaledInstance(237, 237, Image.SCALE_SMOOTH)));
+        labelAvatar.setIcon(new javax.swing.ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/" + account.getAvatar())).getScaledInstance(237, 237, Image.SCALE_SMOOTH)));
         setIconImage();
     }
 
@@ -59,12 +59,10 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         labelAvatar = new javax.swing.JLabel();
         labelAvatarText = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         btn_Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setForeground(new java.awt.Color(255, 255, 153));
         jPanel1.setLayout(null);
@@ -72,7 +70,7 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         btnBack.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(51, 51, 51));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/back.png"))); // NOI18N
-        btnBack.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBack.setBorder(null);
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,11 +80,11 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         jPanel1.add(btnBack);
         btnBack.setBounds(20, 10, 30, 30);
 
-        btnSaveChanges.setBackground(new java.awt.Color(51, 255, 0));
-        btnSaveChanges.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSaveChanges.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnSaveChanges.setForeground(new java.awt.Color(19, 142, 24));
         btnSaveChanges.setText("Save Changes");
-        btnSaveChanges.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSaveChanges.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSaveChanges.setOpaque(true);
         btnSaveChanges.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveChangesActionPerformed(evt);
@@ -95,10 +93,9 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         jPanel1.add(btnSaveChanges);
         btnSaveChanges.setBounds(430, 320, 140, 48);
 
-        btnChooseAvatar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnChooseAvatar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnChooseAvatar.setForeground(new java.awt.Color(51, 51, 51));
         btnChooseAvatar.setText("Choose new Avatar");
-        btnChooseAvatar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnChooseAvatar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnChooseAvatar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,30 +105,29 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         jPanel1.add(btnChooseAvatar);
         btnChooseAvatar.setBounds(310, 240, 260, 48);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBackground(new java.awt.Color(214, 253, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 255)));
         jPanel2.setLayout(null);
 
-        labelAvatar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        labelAvatar.setBackground(new java.awt.Color(255, 255, 255));
+        labelAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelAvatar.setOpaque(true);
         jPanel2.add(labelAvatar);
-        labelAvatar.setBounds(10, 10, 237, 237);
+        labelAvatar.setBounds(10, 10, 240, 237);
 
-        labelAvatarText.setFont(new java.awt.Font("Freestyle Script", 0, 48)); // NOI18N
-        labelAvatarText.setForeground(new java.awt.Color(91, 90, 90));
+        labelAvatarText.setFont(new java.awt.Font("Freestyle Script", 0, 30)); // NOI18N
         labelAvatarText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelAvatarText.setText("Avatar");
         jPanel2.add(labelAvatarText);
-        labelAvatarText.setBounds(15, 265, 230, 45);
+        labelAvatarText.setBounds(10, 260, 240, 45);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(20, 60, 260, 310);
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(360, 20, 0, 160);
 
-        btn_Cancel.setBackground(new java.awt.Color(255, 0, 0));
         btn_Cancel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btn_Cancel.setForeground(new java.awt.Color(255, 0, 51));
         btn_Cancel.setText("Hủy");
-        btn_Cancel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btn_Cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CancelActionPerformed(evt);
@@ -202,7 +198,6 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
     private javax.swing.JButton btnChooseAvatar;
     private javax.swing.JButton btnSaveChanges;
     private javax.swing.JButton btn_Cancel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelAvatar;

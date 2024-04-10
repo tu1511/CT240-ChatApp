@@ -7,14 +7,16 @@ package com.chatapp.view;
 import com.chatapp.model.Account;
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import javax.swing.ImageIcon;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -37,7 +39,7 @@ public class LoginFrm extends javax.swing.JFrame {
         labelNotification.setVisible(false);
         txtPassword.setEchoChar('\u25cf');
         scaleImage();
-        lbShow.setVisible(false);
+//        lbShow.setVisible(false);
     }
     // kiem tra ten tai khoan co chua khoang trong khong
     public boolean checkUsername(String name) {
@@ -77,6 +79,8 @@ public class LoginFrm extends javax.swing.JFrame {
             response = input.readUTF();
             //String linkavatar = input.readUTF();
             account.setAvatar("avatar_girl.png");
+            String linkavatar = input.readUTF();
+            account.setAvatar(linkavatar);
             System.out.println("da" + response);
             return response;
         } catch (IOException e) {
@@ -118,28 +122,23 @@ public class LoginFrm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtUserName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        lbShow = new javax.swing.JLabel();
-        lbHide = new javax.swing.JLabel();
         labelNotification = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         btnSignUp = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
+        passwordCheckbox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 204, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CHAT APP ");
@@ -148,7 +147,7 @@ public class LoginFrm extends javax.swing.JFrame {
         jLabel2.setText("Username");
 
         txtUserName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtUserName.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtUserName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 255)));
         txtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserNameActionPerformed(evt);
@@ -159,7 +158,7 @@ public class LoginFrm extends javax.swing.JFrame {
         jLabel3.setText("Password");
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtPassword.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 255)));
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
@@ -171,23 +170,11 @@ public class LoginFrm extends javax.swing.JFrame {
             }
         });
 
-        lbShow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/Iconoir-Team-Iconoir-Eye-empty.32.png"))); // NOI18N
-        lbShow.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lbShowMousePressed(evt);
-            }
-        });
-
-        lbHide.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/Iconoir-Team-Iconoir-Eye-off.32.png"))); // NOI18N
-        lbHide.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lbHideMousePressed(evt);
-            }
-        });
+        labelNotification.setForeground(new java.awt.Color(255, 0, 0));
 
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(0, 0, 255));
-        btnLogin.setText("Login");
+        btnLogin.setText("LOGIN");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -196,7 +183,7 @@ public class LoginFrm extends javax.swing.JFrame {
 
         btnSignUp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnSignUp.setForeground(new java.awt.Color(0, 0, 255));
-        btnSignUp.setText("Sign up");
+        btnSignUp.setText("SIGN UP");
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSignUpActionPerformed(evt);
@@ -205,101 +192,79 @@ public class LoginFrm extends javax.swing.JFrame {
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/logo_128.png"))); // NOI18N
 
+        passwordCheckbox.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        passwordCheckbox.setText("Show password");
+        passwordCheckbox.setFocusPainted(false);
+        passwordCheckbox.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        passwordCheckbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordCheckboxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(labelNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(180, 180, 180)
-                                .addComponent(lblLogo))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(jLabel3)
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(btnLogin)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(btnSignUp))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lbShow, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(lbHide))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnSignUp))
+                                .addComponent(labelNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(passwordCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(lblLogo)))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 20, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblLogo)
-                .addGap(28, 28, 28)
+                .addGap(48, 48, 48)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbShow)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3))
-                    .addComponent(lbHide))
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordCheckbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelNotification, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogin)
-                    .addComponent(btnSignUp))
-                .addGap(26, 26, 26))
+                    .addComponent(btnSignUp)
+                    .addComponent(btnLogin))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(185, 185, 185)))
-                .addGap(169, 169, 169))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -407,17 +372,17 @@ public class LoginFrm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtPasswordKeyPressed
 
-    private void lbHideMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHideMousePressed
-        lbShow.setVisible(true);
-        lbHide.setVisible(false);
-        txtPassword.setEchoChar((char) 0);
-    }//GEN-LAST:event_lbHideMousePressed
-
-    private void lbShowMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbShowMousePressed
-        lbHide.setVisible(true);
-        lbShow.setVisible(false);
-        txtPassword.setEchoChar('\u25cf');
-    }//GEN-LAST:event_lbShowMousePressed
+    private void passwordCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordCheckboxActionPerformed
+        boolean isChecked = passwordCheckbox.isSelected();
+        
+        if (isChecked) {
+            txtPassword.setEchoChar((char) 0);
+            passwordCheckbox.setText("Hide password");
+        } else {
+            txtPassword.setEchoChar('\u25cf');
+            passwordCheckbox.setText("Show password");
+        }
+    }//GEN-LAST:event_passwordCheckboxActionPerformed
     
     /**
      * @param args the command line arguments
@@ -449,7 +414,18 @@ public class LoginFrm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginFrm().setVisible(true);
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                    new LoginFrm().setVisible(true);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(LoginFrm.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(LoginFrm.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(LoginFrm.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(LoginFrm.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -460,36 +436,33 @@ public class LoginFrm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelNotification;
-    private javax.swing.JLabel lbHide;
-    private javax.swing.JLabel lbShow;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JCheckBox passwordCheckbox;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 
     private void scaleImage() {
         //logo
-        ImageIcon thongtinKhachHang_icon = new ImageIcon(getClass().getResource("/com/chatapp/image/Martz90-Hex-Messenger.128.png"));
-        Image thongtinKH_img = thongtinKhachHang_icon.getImage();
-        Image thongtinKHImgScale = thongtinKH_img.getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon thongtinKHScaledIcon = new ImageIcon(thongtinKHImgScale);
-       //Show password icon
-        ImageIcon show_icon = new ImageIcon(getClass().getResource("/com/chatapp/image/Iconoir-Team-Iconoir-Eye-empty.32.png"));
-        Image showicon_img = show_icon.getImage();
-        Image showIconImgScale = showicon_img.getScaledInstance(lbShow.getWidth(), lbShow.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon showIconScaledIcon = new ImageIcon(showIconImgScale);
-        lbShow.setIcon(showIconScaledIcon);
-
-        //Hide password icon
-        ImageIcon hide_icon = new ImageIcon(getClass().getResource("/com/chatapp/image/Iconoir-Team-Iconoir-Eye-off.32.png"));
-        Image hideicon_img = hide_icon.getImage();
-        Image hideIconImgScale = hideicon_img.getScaledInstance(lbHide.getWidth(), lbHide.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon hideIconScaledIcon = new ImageIcon(hideIconImgScale);
-        lbHide.setIcon(hideIconScaledIcon);
+//        ImageIcon thongtinKhachHang_icon = new ImageIcon(getClass().getResource("/com/chatapp/image/Martz90-Hex-Messenger.128.png"));
+//        Image thongtinKH_img = thongtinKhachHang_icon.getImage();
+//        Image thongtinKHImgScale = thongtinKH_img.getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(), Image.SCALE_SMOOTH);
+//        ImageIcon thongtinKHScaledIcon = new ImageIcon(thongtinKHImgScale);
+//       //Show password icon
+//        ImageIcon show_icon = new ImageIcon(getClass().getResource("/com/chatapp/image/Iconoir-Team-Iconoir-Eye-empty.32.png"));
+//        Image showicon_img = show_icon.getImage();
+//        Image showIconImgScale = showicon_img.getScaledInstance(lbShow.getWidth(), lbShow.getHeight(), Image.SCALE_SMOOTH);
+//        ImageIcon showIconScaledIcon = new ImageIcon(showIconImgScale);
+//        lbShow.setIcon(showIconScaledIcon);
+//
+//        //Hide password icon
+//        ImageIcon hide_icon = new ImageIcon(getClass().getResource("/com/chatapp/image/Iconoir-Team-Iconoir-Eye-off.32.png"));
+//        Image hideicon_img = hide_icon.getImage();
+//        Image hideIconImgScale = hideicon_img.getScaledInstance(lbHide.getWidth(), lbHide.getHeight(), Image.SCALE_SMOOTH);
+//        ImageIcon hideIconScaledIcon = new ImageIcon(hideIconImgScale);
+//        lbHide.setIcon(hideIconScaledIcon);
     }
     
 }
