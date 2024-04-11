@@ -52,7 +52,7 @@ public class ChatFrm extends javax.swing.JFrame {
         receiverThread.start();
         panelAccount.setVisible(true);
         loadavatar();
-        setIconImage();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/chat.png")));
         scaleImage();
     }
 
@@ -173,6 +173,7 @@ public class ChatFrm extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Chat App");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -278,6 +279,7 @@ public class ChatFrm extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
+        chatWindow.setBackground(new java.awt.Color(255, 255, 255));
         chatWindow.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         chatWindow.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         chatWindow.setForeground(new java.awt.Color(91, 90, 90));
@@ -622,11 +624,6 @@ public class ChatFrm extends javax.swing.JFrame {
         menu_Icon.add(panel_Icon);
     }//GEN-LAST:event_jButton1ActionPerformed
     
-    private void setIconImage() {
-        //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Image/tchat_title_white.png")));
-
-    }
-
     private void scaleImage() {
 //        ImageIcon thongtinKhachHang_icon = new ImageIcon(getClass().getResource("/com/chatapp/image/"));
 //        Image thongtinKH_img = thongtinKhachHang_icon.getImage();
