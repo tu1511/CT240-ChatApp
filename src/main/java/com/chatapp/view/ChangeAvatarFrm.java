@@ -34,13 +34,12 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
      */
     public ChangeAvatarFrm(ChatFrm chat, Account account, DataInputStream dis, DataOutputStream dos) {
         initComponents();
-        initComponents();
         chatFrame = chat;
         this.account = account;
         input = dis;
         output = dos;
         labelAvatar.setIcon(new javax.swing.ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/" + account.getAvatar())).getScaledInstance(48, 48, Image.SCALE_SMOOTH)));
-        setIconImage();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/change_avatar.png")));
     }
 
     /**
@@ -62,6 +61,7 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
         btn_Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Change avatar");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setForeground(new java.awt.Color(255, 255, 153));
@@ -171,7 +171,7 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
     private void btnChooseAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChooseAvatarActionPerformed
         String link = System.getProperty("user.dir");
         System.out.println(link);
-        final JFileChooser fileDialog = new JFileChooser(link + "\\src\\comm\\chatapp\\image\\");
+        final JFileChooser fileDialog = new JFileChooser(link + "\\src\\main\\resources\\com\\chatapp\\image\\");
         int returnVal = fileDialog.showOpenDialog(this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             java.io.File file = fileDialog.getSelectedFile();
@@ -203,11 +203,6 @@ public class ChangeAvatarFrm extends javax.swing.JFrame {
     private javax.swing.JLabel labelAvatar;
     private javax.swing.JLabel labelAvatarText;
     // End of variables declaration//GEN-END:variables
-
-    private void setIconImage() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("")));
-    
-    }
 
     private boolean changeAvatar() {
         ConnectToServer();
