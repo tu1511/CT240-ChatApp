@@ -55,12 +55,14 @@ public class FileMessage extends Message {
         if (yourMessage == true) {
             //StyleConstants.setForeground(userStyle, Color.red);
             try {
+                StyleConstants.setForeground(userStyle, Color.red);
                 doc.insertString(doc.getLength(), "You: ", userStyle);
             } catch (BadLocationException e) {
             }
         } else {
             //StyleConstants.setForeground(userStyle, Color.BLUE);
             try {
+                StyleConstants.setForeground(userStyle, new Color(19, 142, 24));
                 doc.insertString(doc.getLength(), sender + ": ", userStyle);
             } catch (BadLocationException e) {
             }
