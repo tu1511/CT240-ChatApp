@@ -44,11 +44,13 @@ public class TextMessage extends Message{
             //doc.setParagraphAttributes(doc.getLength(), 1, right, false);
             // In ra tên người gửi
             try {
+                StyleConstants.setForeground(userStyle, Color.red);
                 doc.insertString(doc.getLength(), "You: ", userStyle);
             } catch (BadLocationException e) {
             }
         } else {
             try {
+                StyleConstants.setForeground(userStyle, new Color(19, 142, 24));
                 doc.insertString(doc.getLength(), sender + ": ", userStyle);
             } catch (BadLocationException e) {
             }
