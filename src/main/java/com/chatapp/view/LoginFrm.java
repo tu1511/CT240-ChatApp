@@ -7,6 +7,7 @@ package com.chatapp.view;
 import com.chatapp.model.Account;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -38,8 +39,7 @@ public class LoginFrm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         labelNotification.setVisible(false);
         txtPassword.setEchoChar('\u25cf');
-        scaleImage();
-//        lbShow.setVisible(false);
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/login.png")));
     }
     // kiem tra ten tai khoan co chua khoang trong khong
     public boolean checkUsername(String name) {

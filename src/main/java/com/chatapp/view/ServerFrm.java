@@ -6,6 +6,7 @@ package com.chatapp.view;
 
 import com.chatapp.controller.Server;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class ServerFrm extends javax.swing.JFrame {
      */
     public ServerFrm() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/server.png")));
     }
 
     /**

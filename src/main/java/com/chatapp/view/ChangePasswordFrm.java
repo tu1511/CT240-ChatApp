@@ -5,6 +5,7 @@
 package com.chatapp.view;
 
 import com.chatapp.model.Account;
+import java.awt.Toolkit;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -39,7 +40,8 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         txtCurrentPassword.setEchoChar('\u25cf');
         txtNewPassword.setEchoChar('\u25cf');
         txtConfirmPassword.setEchoChar('\u25cf');
-        //this.lbHidePW.setVisible(false);       
+        //this.lbHidePW.setVisible(false); 
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/chatapp/image/change_password.png")));
     }
 
     /**
@@ -66,6 +68,7 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         btn_Cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Change password");
 
         jPanel1.setForeground(new java.awt.Color(255, 255, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,7 +92,6 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         jPanel1.add(labelCurrentPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 160, 30));
 
         txtNewPassword.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtNewPassword.setForeground(new java.awt.Color(91, 90, 90));
         txtNewPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 255)));
         jPanel1.add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 300, 30));
 
@@ -98,7 +100,6 @@ public class ChangePasswordFrm extends javax.swing.JFrame {
         jPanel1.add(labelNewPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 160, 30));
 
         txtConfirmPassword.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        txtConfirmPassword.setForeground(new java.awt.Color(91, 90, 90));
         txtConfirmPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 255)));
         jPanel1.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 300, 30));
 
