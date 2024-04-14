@@ -148,7 +148,7 @@ public class FileMessage extends Message {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            execute();
+            // execute();
         }
 
         public void execute() {
