@@ -754,18 +754,7 @@ public class ChatFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAccountComponentMoved
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (menu_Icon.isVisible()) {
-            menu_Icon.setVisible(false);
-        } else {
-            int newX = jButton1.getLocation().x +240;
-            int newY = jButton1.getLocation().y + jButton1.getHeight() +300;
-
-            // Đặt vị trí mới cho menu_Icon
-            menu_Icon.setLocation(newX, newY);
-
-            // Hiển thị menu_Icon tại vị trí mới
-            menu_Icon.setVisible(true);
-        }
+        menu_Icon.show(jButton1, 0, jButton1.getHeight()-150);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Gửi emoji
