@@ -187,7 +187,6 @@ public class FileMessage extends Message {
                 AttributeSet as = ele.getAttributes();
                 HyberlinkListener link = (HyberlinkListener) as.getAttribute("link");
                 if (link != null) {
-                    System.out.println(link);
                     link.execute();
                 }
             }

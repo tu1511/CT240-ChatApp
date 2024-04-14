@@ -131,8 +131,20 @@ public class ChatFrm extends javax.swing.JFrame {
     private void initComponents() {
 
         panel_Icon = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jPanel5 = new javax.swing.JPanel();
+        btnSad = new javax.swing.JButton();
+        btnLove = new javax.swing.JButton();
+        btnWow = new javax.swing.JButton();
+        btnAngry = new javax.swing.JButton();
+        btnCry = new javax.swing.JButton();
+        btnShocked = new javax.swing.JButton();
+        btnHappy = new javax.swing.JButton();
+        btnSmile = new javax.swing.JButton();
+        btnHeart = new javax.swing.JButton();
+        btnCool = new javax.swing.JButton();
+        btnThinking = new javax.swing.JButton();
+        btnSilly = new javax.swing.JButton();
         menu_Icon = new javax.swing.JPopupMenu();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -156,21 +168,152 @@ public class ChatFrm extends javax.swing.JFrame {
         labelUserName = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jPanel5.setComponentPopupMenu(menu_Icon);
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnSad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/sadEmoji.png"))); // NOI18N
+        btnSad.setBorderPainted(false);
+        btnSad.setContentAreaFilled(false);
+        btnSad.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSadActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnSad, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 30, 30));
+
+        btnLove.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/loveEmoji.png"))); // NOI18N
+        btnLove.setBorderPainted(false);
+        btnLove.setContentAreaFilled(false);
+        btnLove.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoveActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnLove, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
+
+        btnWow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/wowEmoji.png"))); // NOI18N
+        btnWow.setBorderPainted(false);
+        btnWow.setContentAreaFilled(false);
+        btnWow.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnWow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWowActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnWow, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 30, 30));
+
+        btnAngry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/angryEmoji.png"))); // NOI18N
+        btnAngry.setBorderPainted(false);
+        btnAngry.setContentAreaFilled(false);
+        btnAngry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAngry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAngryActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnAngry, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 30, 30));
+
+        btnCry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/cryEmoji.png"))); // NOI18N
+        btnCry.setBorderPainted(false);
+        btnCry.setContentAreaFilled(false);
+        btnCry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCryActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnCry, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 30, 30));
+
+        btnShocked.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/shockedEmoji.png"))); // NOI18N
+        btnShocked.setBorderPainted(false);
+        btnShocked.setContentAreaFilled(false);
+        btnShocked.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnShocked.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShockedActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnShocked, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 30, 30));
+
+        btnHappy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/happyEmoji.png"))); // NOI18N
+        btnHappy.setBorderPainted(false);
+        btnHappy.setContentAreaFilled(false);
+        btnHappy.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHappy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHappyActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnHappy, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 30, 30));
+
+        btnSmile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/smileEmoji.png"))); // NOI18N
+        btnSmile.setBorderPainted(false);
+        btnSmile.setContentAreaFilled(false);
+        btnSmile.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSmile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSmileActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnSmile, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 30, 30));
+
+        btnHeart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/heartEmoji.png"))); // NOI18N
+        btnHeart.setBorderPainted(false);
+        btnHeart.setContentAreaFilled(false);
+        btnHeart.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHeart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHeartActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnHeart, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 30, 30));
+
+        btnCool.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/coolEmoji.png"))); // NOI18N
+        btnCool.setBorderPainted(false);
+        btnCool.setContentAreaFilled(false);
+        btnCool.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCool.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCoolActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnCool, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 30, 30));
+
+        btnThinking.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/thinkingEmoji.png"))); // NOI18N
+        btnThinking.setBorderPainted(false);
+        btnThinking.setContentAreaFilled(false);
+        btnThinking.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnThinking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThinkingActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnThinking, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 30, 30));
+
+        btnSilly.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/chatapp/image/sillyEmoji.png"))); // NOI18N
+        btnSilly.setBorderPainted(false);
+        btnSilly.setContentAreaFilled(false);
+        btnSilly.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSilly.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSillyActionPerformed(evt);
+            }
+        });
+        jPanel5.add(btnSilly, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 30, 30));
+
+        jScrollPane3.setViewportView(jPanel5);
 
         javax.swing.GroupLayout panel_IconLayout = new javax.swing.GroupLayout(panel_Icon);
         panel_Icon.setLayout(panel_IconLayout);
         panel_IconLayout.setHorizontalGroup(
             panel_IconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         panel_IconLayout.setVerticalGroup(
             panel_IconLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_IconLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -259,11 +402,12 @@ public class ChatFrm extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(cbOnlineUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(labelChatWith, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelChatWith, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(cbOnlineUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 34, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -273,7 +417,7 @@ public class ChatFrm extends javax.swing.JFrame {
                 .addComponent(labelChatWith, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(cbOnlineUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         lblAvatar.setText("avatar");
@@ -610,38 +754,88 @@ public class ChatFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAccountComponentMoved
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        int newX = jButton1.getLocation().x +240;
-//        int newY = jButton1.getLocation().y + jButton1.getHeight() +310;
-//
-//        // Đặt vị trí mới cho menu_Icon
-//        menu_Icon.setLocation(newX, newY);
-//
-//        // Hiển thị menu_Icon tại vị trí mới
-//        menu_Icon.setVisible(true);
-//
-//        // Hiển thị panel_Icon bên trong menu_Icon
-//        menu_Icon.add(panel_Icon);
+        if (menu_Icon.isVisible()) {
+            menu_Icon.setVisible(false);
+        } else {
+            int newX = jButton1.getLocation().x +240;
+            int newY = jButton1.getLocation().y + jButton1.getHeight() +300;
 
+            // Đặt vị trí mới cho menu_Icon
+            menu_Icon.setLocation(newX, newY);
+
+            // Hiển thị menu_Icon tại vị trí mới
+            menu_Icon.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    // Gửi emoji
+    private void sendEmoji(String emojiName) {
         Thread sendTextThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     String messageSent = "Text" + "," + labelUserName.getText() + ","
-                            + (String) cbOnlineUsers.getSelectedItem() + "," + "<img src=\""+ getClass().getResource("/com/chatapp/image/chatBoxIcon.png") + "\"/>";
+                            + (String) cbOnlineUsers.getSelectedItem() + "," + "<img src=\""+ getClass().getResource("/com/chatapp/image/" + emojiName) + "\"/>";
                     output.writeUTF(messageSent);
                     output.flush();
                 } catch (IOException e1) {
                     e1.printStackTrace();
                     displayTextMessage("ERROR", "ERROR", "Network error!", true);
                 }
-                displayTextMessage(labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), "<img src=\""+ getClass().getResource("/com/chatapp/image/chatBoxIcon.png") + "\"/>", true);
+                displayTextMessage(labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), "<img src=\""+ getClass().getResource("/com/chatapp/image/" + emojiName) + "\"/>", true);
                 autoScroll();
-                txtChat.setText("");
             }
-
         });
         sendTextThread.start();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
+    
+    private void btnSadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSadActionPerformed
+        sendEmoji("sadEmoji.png");
+    }//GEN-LAST:event_btnSadActionPerformed
+
+    private void btnWowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWowActionPerformed
+        sendEmoji("wowEmoji.png");
+    }//GEN-LAST:event_btnWowActionPerformed
+
+    private void btnAngryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAngryActionPerformed
+        sendEmoji("angryEmoji.png");
+    }//GEN-LAST:event_btnAngryActionPerformed
+
+    private void btnCryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCryActionPerformed
+        sendEmoji("cryEmoji.png");
+    }//GEN-LAST:event_btnCryActionPerformed
+
+    private void btnShockedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShockedActionPerformed
+        sendEmoji("shockedEmoji.png");
+    }//GEN-LAST:event_btnShockedActionPerformed
+
+    private void btnHappyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHappyActionPerformed
+        sendEmoji("happyEmoji.png");
+    }//GEN-LAST:event_btnHappyActionPerformed
+
+    private void btnSmileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSmileActionPerformed
+        sendEmoji("smileEmoji.png");
+    }//GEN-LAST:event_btnSmileActionPerformed
+
+    private void btnHeartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHeartActionPerformed
+        sendEmoji("heartEmoji.png");
+    }//GEN-LAST:event_btnHeartActionPerformed
+
+    private void btnCoolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCoolActionPerformed
+        sendEmoji("coolEmoji.png");
+    }//GEN-LAST:event_btnCoolActionPerformed
+
+    private void btnThinkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThinkingActionPerformed
+        sendEmoji("thinkingEmoji.png");
+    }//GEN-LAST:event_btnThinkingActionPerformed
+
+    private void btnSillyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSillyActionPerformed
+        sendEmoji("sillyEmoji.png");
+    }//GEN-LAST:event_btnSillyActionPerformed
+
+    private void btnLoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoveActionPerformed
+        sendEmoji("loveEmoji.png");
+    }//GEN-LAST:event_btnLoveActionPerformed
     
     private void scaleImage() {
 //        ImageIcon thongtinKhachHang_icon = new ImageIcon(getClass().getResource("/com/chatapp/image/"));
@@ -776,11 +970,23 @@ public class ChatFrm extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAngry;
     private javax.swing.JButton btnChangeAvatar;
     private javax.swing.JButton btnChangePassword;
+    private javax.swing.JButton btnCool;
+    private javax.swing.JButton btnCry;
+    private javax.swing.JButton btnHappy;
+    private javax.swing.JButton btnHeart;
     private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnLove;
+    private javax.swing.JButton btnSad;
     private javax.swing.JButton btnSend;
     private javax.swing.JButton btnSendFile;
+    private javax.swing.JButton btnShocked;
+    private javax.swing.JButton btnSilly;
+    private javax.swing.JButton btnSmile;
+    private javax.swing.JButton btnThinking;
+    private javax.swing.JButton btnWow;
     private javax.swing.JComboBox<String> cbOnlineUsers;
     private javax.swing.JTextPane chatWindow;
     private javax.swing.JButton jButton1;
@@ -791,9 +997,9 @@ public class ChatFrm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel labelChatWith;
     private javax.swing.JLabel labelUserName;
     private javax.swing.JLabel lblAvatar;
