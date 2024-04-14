@@ -74,8 +74,6 @@ public class FileMessage extends Message {
             StyleConstants.setForeground(linkStyle, Color.BLUE);
             StyleConstants.setUnderline(linkStyle, true);
             StyleConstants.setBold(linkStyle, true);
-//            linkStyle.addAttribute("link", new HyberlinkListener(filename, file) {
-//            });
         }
         linkStyle.addAttribute("link", new HyberlinkListener(filename, file) {});
         
