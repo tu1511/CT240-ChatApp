@@ -39,6 +39,7 @@ public class ChatFrm extends javax.swing.JFrame {
 
     public ChatFrm(Account users, DataInputStream dis, DataOutputStream dos) {
         initComponents();
+        chatWindow.setContentType("text/html");
         System.out.println(users.getUserName());
         labelUserName.setText(users.getUserName());
         account.setUserName(users.getUserName());
@@ -279,7 +280,6 @@ public class ChatFrm extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
-        chatWindow.setBackground(new java.awt.Color(255, 255, 255));
         chatWindow.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         chatWindow.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         chatWindow.setForeground(new java.awt.Color(91, 90, 90));
@@ -610,17 +610,37 @@ public class ChatFrm extends javax.swing.JFrame {
     }//GEN-LAST:event_panelAccountComponentMoved
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int newX = jButton1.getLocation().x +240;
-        int newY = jButton1.getLocation().y + jButton1.getHeight() +310;
+//        int newX = jButton1.getLocation().x +240;
+//        int newY = jButton1.getLocation().y + jButton1.getHeight() +310;
+//
+//        // Đặt vị trí mới cho menu_Icon
+//        menu_Icon.setLocation(newX, newY);
+//
+//        // Hiển thị menu_Icon tại vị trí mới
+//        menu_Icon.setVisible(true);
+//
+//        // Hiển thị panel_Icon bên trong menu_Icon
+//        menu_Icon.add(panel_Icon);
 
-        // Đặt vị trí mới cho menu_Icon
-        menu_Icon.setLocation(newX, newY);
+        Thread sendTextThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String messageSent = "Text" + "," + labelUserName.getText() + ","
+                            + (String) cbOnlineUsers.getSelectedItem() + "," + "<img src=\""+ getClass().getResource("/com/chatapp/image/chatBoxIcon.png") + "\"/>";
+                    output.writeUTF(messageSent);
+                    output.flush();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                    displayTextMessage("ERROR", "ERROR", "Network error!", true);
+                }
+                displayTextMessage(labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), "<img src=\""+ getClass().getResource("/com/chatapp/image/chatBoxIcon.png") + "\"/>", true);
+                autoScroll();
+                txtChat.setText("");
+            }
 
-        // Hiển thị menu_Icon tại vị trí mới
-        menu_Icon.setVisible(true);
-
-        // Hiển thị panel_Icon bên trong menu_Icon
-        menu_Icon.add(panel_Icon);
+        });
+        sendTextThread.start();
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void scaleImage() {
