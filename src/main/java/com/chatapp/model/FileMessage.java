@@ -76,7 +76,7 @@ public class FileMessage extends Message {
             StyleConstants.setBold(linkStyle, true);
         }
         linkStyle.addAttribute("link", new HyberlinkListener(filename, file) {});
-
+        
         if (chatWindows.getMouseListeners() != null) {
             // Tạo MouseListener cho các đường dẫn tải về file
             chatWindows.addMouseListener(new MouseListener() {
