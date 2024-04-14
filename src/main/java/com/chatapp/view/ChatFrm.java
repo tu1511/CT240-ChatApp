@@ -18,6 +18,7 @@ import java.io.DataOutputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.JFileChooser;
@@ -424,6 +425,7 @@ public class ChatFrm extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
+        chatWindow.setEditable(false);
         chatWindow.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         chatWindow.setFont(new java.awt.Font("Bahnschrift", 0, 18)); // NOI18N
         chatWindow.setForeground(new java.awt.Color(91, 90, 90));
@@ -484,8 +486,11 @@ public class ChatFrm extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 153, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Icon");
+        jButton1.setBorderPainted(false);
+        jButton1.setOpaque(true);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -885,6 +890,13 @@ public class ChatFrm extends javax.swing.JFrame {
                         String chat = (String) cbOnlineUsers.getSelectedItem();
                         cbOnlineUsers.removeAllItems();
                         boolean isChattingOnline = false;
+                        
+                        List usersList = Arrays.asList(users);
+                        for (String key : messageContent.keySet()) {
+                            if (!usersList.contains(key)) {
+                                messageContent.remove(key);
+                            }
+                        }
 
                         for (String u : users) {
                             if (u.equals(account.getUserName()) == false) {
@@ -898,6 +910,7 @@ public class ChatFrm extends javax.swing.JFrame {
                                 isChattingOnline = true;
                             }
                         }
+                        
                         if (isChattingOnline == true) {
                             cbOnlineUsers.setSelectedItem(chat);
                         } else if (cbOnlineUsers.getSelectedItem() != null) {
