@@ -168,7 +168,7 @@ public class FileMessage extends Message {
             htmlKit.insertHTML(htmlDoc, htmlDoc.getLength(), htmlMessage, 0, 0, null);
             htmlDoc.setCharacterAttributes(htmlDoc.getLength() - filename.length(), filename.length(), attrs, false);
         } catch (BadLocationException | IOException ex) {
-            Logger.getLogger(TextMessage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileMessage.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         StyleSheet styleSheet = htmlDoc.getStyleSheet();
