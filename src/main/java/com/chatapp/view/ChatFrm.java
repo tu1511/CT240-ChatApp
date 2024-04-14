@@ -636,7 +636,7 @@ public class ChatFrm extends javax.swing.JFrame {
                 }
                 displayTextMessage(labelUserName.getText(), (String) cbOnlineUsers.getSelectedItem(), "<img src=\""+ getClass().getResource("/com/chatapp/image/chatBoxIcon.png") + "\"/>", true);
                 autoScroll();
-                txtChat.setText("");
+                // txtChat.setText("");
             }
 
         });
