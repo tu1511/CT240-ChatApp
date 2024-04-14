@@ -78,11 +78,18 @@ public class FileMessage extends Message {
         linkStyle.addAttribute("link", new HyberlinkListener(filename, file) {});
         
         if (chatWindows.getMouseListeners() != null) {
+            for (MouseListener ml : chatWindows.getMouseListeners()) {
+                chatWindows.removeMouseListener(ml);
+            }
+        }
+
+        if (chatWindows.getMouseListeners() != null) {
             // Tạo MouseListener cho các đường dẫn tải về file
             chatWindows.addMouseListener(new MouseListener() {
 
                 @Override
                 public void mouseClicked(MouseEvent e) {
+                    @SuppressWarnings("deprecation")
                     Element ele = doc.getCharacterElement(chatWindows.viewToModel(e.getPoint()));
                     AttributeSet as = ele.getAttributes();
                     HyberlinkListener listener = (HyberlinkListener) as.getAttribute("link");
@@ -148,7 +155,7 @@ public class FileMessage extends Message {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            // execute();
+            execute();
         }
 
         public void execute() {
