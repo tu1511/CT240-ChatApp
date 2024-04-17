@@ -27,39 +27,39 @@ Xây dựng ứng dụng Chat App cung cấp môi trường cho người dùng c
 
 #### Máy chủ
 
-![Máy chủ](/images/Pic1.png)
+![Máy chủ](src/main/resources/com/chatapp/image/images/Pic1.png)
 
 #### Đăng nhập
 
-![Đăng nhập](/images/Pic2.png)
+![Đăng nhập](src/main/resources/com/chatapp/image/images/Pic2.png)
 
 #### Giao diện chính
 
-![Giao diện chính](/images/Pic3.png)
+![Giao diện chính](src/main/resources/com/chatapp/image/images/Pic3.png)
 
 #### Đổi mật khẩu
 
-![Đổi mật khẩu](/images/Pic4.png)
+![Đổi mật khẩu](src/main/resources/com/chatapp/image/images/Pic4.png)
 
 #### Đổi ảnh đại diện
 
-![đổi ảnh đại diện](/images/Pic5.png)
+![đổi ảnh đại diện](src/main/resources/com/chatapp/image/images/Pic5.png)
 
 #### Chọn người dùng để chat
 
-![chọn người dùng](/images/Pic6.png)
+![chọn người dùng](src/main/resources/com/chatapp/image/images/Pic6.png)
 
 #### Gửi file
 
-![Gửi file](/images/Pic7.png)
+![Gửi file](src/main/resources/com/chatapp/image/images/Pic7.png)
 
 #### Gửi emoji
 
-![Gửi file](/images/Pic8.png)
+![Gửi file](src/main/resources/com/chatapp/image/images/Pic8.png)
 
 ### DEMO
 
-![Test](/images/Pic9.png)
+![Test](src/main/resources/com/chatapp/image/images/Pic9.png)
 
 ## 🔧Cài đặt dự án
 
@@ -69,7 +69,7 @@ Xây dựng ứng dụng Chat App cung cấp môi trường cho người dùng c
 2. IDE: đề xuất Netbeans (mới nhất)
 3. Cài đặt JDK 20 và apache maven (>= 3.x)
 4. Cài đặt MySql workbench và tạo cơ sở dữ liệu có tên là **chatapp**
-5. Click chọn tool có sẵn trên netbeans để clean và build dự án: ![Alt text](/images/Pic10.png)
+5. Click chọn tool có sẵn trên netbeans để clean và build dự án: ![Alt text](src/main/resources/com/chatapp/image/Pic10.png)
 
 ## 📺Công nghệ sử dụng
 
