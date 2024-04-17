@@ -27,39 +27,39 @@ Xây dựng ứng dụng Chat App cung cấp môi trường cho người dùng c
 
 #### Máy chủ
 
-![Máy chủ](src/main/resources/com/chatapp/image/images/Pic1.png)
+![Máy chủ](src/main/resources/com/chatapp/image/Pic1.png)
 
 #### Đăng nhập
 
-![Đăng nhập](src/main/resources/com/chatapp/image/images/Pic2.png)
+![Đăng nhập](src/main/resources/com/chatapp/image/Pic2.png)
 
 #### Giao diện chính
 
-![Giao diện chính](src/main/resources/com/chatapp/image/images/Pic3.png)
+![Giao diện chính](src/main/resources/com/chatapp/image/Pic3.png)
 
 #### Đổi mật khẩu
 
-![Đổi mật khẩu](src/main/resources/com/chatapp/image/images/Pic4.png)
+![Đổi mật khẩu](src/main/resources/com/chatapp/image/Pic4.png)
 
 #### Đổi ảnh đại diện
 
-![đổi ảnh đại diện](src/main/resources/com/chatapp/image/images/Pic5.png)
+![đổi ảnh đại diện](src/main/resources/com/chatapp/image/Pic5.png)
 
 #### Chọn người dùng để chat
 
-![chọn người dùng](src/main/resources/com/chatapp/image/images/Pic6.png)
+![chọn người dùng](src/main/resources/com/chatapp/image/Pic6.png)
 
 #### Gửi file
 
-![Gửi file](src/main/resources/com/chatapp/image/images/Pic7.png)
+![Gửi file](src/main/resources/com/chatapp/image/Pic7.png)
 
 #### Gửi emoji
 
-![Gửi file](src/main/resources/com/chatapp/image/images/Pic8.png)
+![Gửi file](src/main/resources/com/chatapp/image/Pic8.png)
 
 ### DEMO
 
-![Test](src/main/resources/com/chatapp/image/images/Pic9.png)
+![Test](src/main/resources/com/chatapp/image/Pic9.png)
 
 ## 🔧Cài đặt dự án
 
