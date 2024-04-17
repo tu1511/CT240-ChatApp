@@ -5,7 +5,6 @@
 package com.chatapp.view;
 
 import com.chatapp.controller.Server;
-import java.awt.Color;
 import java.awt.Toolkit;
 import java.io.IOException;
 import java.util.logging.Level;

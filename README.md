@@ -27,45 +27,49 @@ Xây dựng ứng dụng Chat App cung cấp môi trường cho người dùng c
 
 #### Máy chủ
 
-![Máy chủ](/images/image-1.png)
+![Máy chủ](/images/Pic1.png)
 
 #### Đăng nhập
 
-![Đăng nhập](/images/image-2.png)
+![Đăng nhập](/images/Pic2.png)
 
 #### Giao diện chính
 
-![Giao diện chính](/images/image-6.png)
+![Giao diện chính](/images/Pic3.png)
 
 #### Đổi mật khẩu
 
-![Đổi mật khẩu](/images/image-7.png)
+![Đổi mật khẩu](/images/Pic4.png)
 
 #### Đổi ảnh đại diện
 
-![đổi ảnh đại diện](/images/image-8.png)
+![đổi ảnh đại diện](/images/Pic5.png)
 
 #### Chọn người dùng để chat
 
-![chọn người dùng](/images/image-9.png)
+![chọn người dùng](/images/Pic6.png)
 
 #### Gửi file
 
-![Gửi file](/images/image-10.png)
+![Gửi file](/images/Pic7.png)
+
+#### Gửi emoji
+
+![Gửi file](/images/Pic8.png)
 
 ### DEMO
 
-![Test](/images/image-11.png)
+![Test](/images/Pic9.png)
 
 ## 🔧Cài đặt dự án
 
 **Maven**
 
-1. Download dự án về máy bằng link liên kết này:[Chat App](https://github.com/Nqvinh7603/CT240-Chat-App)
+1. Download dự án về máy bằng link liên kết này:[Chat App](https://github.com/tu1511/CT240-ChatApp)
 2. IDE: đề xuất Netbeans (mới nhất)
 3. Cài đặt JDK 20 và apache maven (>= 3.x)
 4. Cài đặt MySql workbench và tạo cơ sở dữ liệu có tên là **chatapp**
-5. Click chọn tool có sẵn trên netbeans để clean và build dự án: ![Alt text](/images/image.png)
+5. Click chọn tool có sẵn trên netbeans để clean và build dự án: ![Alt text](/images/Pic10.png)
 
 ## 📺Công nghệ sử dụng
 
@@ -78,6 +82,4 @@ Xây dựng ứng dụng Chat App cung cấp môi trường cho người dùng c
 - **Kiến trúc**
   Mô hình MVC
 
-# CT240 - 2023
-
-#### _NOT ONLY TRY BUT TRY YOUR BEST. GOOD LUCK EVERY ONE !_
+# CT240 - 2024
